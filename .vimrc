@@ -56,10 +56,16 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 syntax enable
-set background=dark
+if has('gui_running')
+	set background=light
+else
+	set background=dark
+endif
 colorscheme solarized
 "show line numbers
 set number
+"Tabulation
+set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 "Enable code folding
 set foldmethod=indent
 set foldlevel=99
@@ -71,3 +77,9 @@ au BufRead, BufNewFile *.py, *.pyw, *.c, *.h match Badwhitespace /\s\+$/
 nmap <F8> :TagbarToggle<CR>
 "map NERDTree to Ctrl+n
 map <C-n> :NERDTreeToggle<CR>
+"Powerline options
+let g:Powerline_symbols = 'fancy'
+set laststatus=2 "Always show status bar
+"Set font
+set guifont=Inconsolata-dz\ for\ Powerline\ Medium\ 10
+set encoding=utf-8
