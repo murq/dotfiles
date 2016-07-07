@@ -77,6 +77,8 @@ au BufRead, BufNewFile *.py, *.pyw, *.c, *.h match Badwhitespace /\s\+$/
 nmap <F8> :TagbarToggle<CR>
 "map NERDTree to Ctrl+n
 map <C-n> :NERDTreeToggle<CR>
+"Close vim if NERDTree is the only window left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "Powerline options
 let g:Powerline_symbols = 'fancy'
 set laststatus=2 "Always show status bar
